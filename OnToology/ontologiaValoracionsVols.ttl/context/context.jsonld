@@ -1,0 +1,186 @@
+{
+  "@context" : {
+    "hasTitle" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasTitle",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "isCityOf" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isCityOf",
+      "@type" : "@id"
+    },
+    "TypeOfTraveller" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#TypeOfTraveller"
+    },
+    "hasRating" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasRating",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "Country" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Country"
+    },
+    "Comment" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Comment"
+    },
+    "hasAircraft" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasAircraft",
+      "@type" : "@id"
+    },
+    "isRuleEnabled" : {
+      "@id" : "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"
+    },
+    "isRecommended" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isRecommended",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "hasComment" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasComment",
+      "@type" : "@id"
+    },
+    "hasDestination" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasDestination",
+      "@type" : "@id"
+    },
+    "isFlightReviewOf" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isFlightReviewOf",
+      "@type" : "@id"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "hasUser" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasUser",
+      "@type" : "@id"
+    },
+    "Location" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Location"
+    },
+    "bornIn" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#bornIn",
+      "@type" : "@id"
+    },
+    "User" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#User"
+    },
+    "hasPersonName" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasPersonName",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Positive" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Positive"
+    },
+    "Person" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Person"
+    },
+    "QatarAirwaysFlight" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#QatarAirwaysFlight"
+    },
+    "hasDate" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasDate",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "Negative" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Negative"
+    },
+    "topObjectProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#topObjectProperty",
+      "@type" : "@id"
+    },
+    "QatarAirways" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#QatarAirways"
+    },
+    "RyanairFlight" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#RyanairFlight"
+    },
+    "hasBody" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasBody",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasAcronym" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasAcronym",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasUserId" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasUserId",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "isVerified" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isVerified",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "hasFlownDate" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasFlownDate",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "FlightReview" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FlightReview"
+    },
+    "Aircraft" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Aircraft"
+    },
+    "Ryanair" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Ryanair"
+    },
+    "hasLocationName" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasLocationName",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasSeatType" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasSeatType",
+      "@type" : "@id"
+    },
+    "isCountryOf" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isCountryOf",
+      "@type" : "@id"
+    },
+    "Airline" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Airline"
+    },
+    "FlightReviewAirline" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FlightReviewAirline"
+    },
+    "Flight" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Flight"
+    },
+    "isFlightOf" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isFlightOf",
+      "@type" : "@id"
+    },
+    "City" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#City"
+    },
+    "FlightReviewRating" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FlightReviewRating"
+    },
+    "Neutral" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Neutral"
+    },
+    "hasFlightId" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasFlightId",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasOrigin" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasOrigin",
+      "@type" : "@id"
+    },
+    "sameAs" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#sameAs"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "FlightReviewVerified" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FlightReviewVerified"
+    },
+    "hasFlightReviewId" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasFlightReviewId",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasTypeOfTraveller" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasTypeOfTraveller",
+      "@type" : "@id"
+    },
+    "SeatType" : {
+      "@id" : "http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#SeatType"
+    }
+  }
+}

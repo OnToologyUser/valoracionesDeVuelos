@@ -1,0 +1,1011 @@
+@prefix : <http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#> .
+
+<http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#bornIn
+:bornIn rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdf:type owl:FunctionalProperty ,
+                 owl:AsymmetricProperty ;
+        rdfs:domain :Person ;
+        rdfs:range :Country ;
+        rdfs:comment "Indicates the place of birth of a person" ;
+        rdfs:label "bornIn" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasAircraft
+:hasAircraft rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdf:type owl:FunctionalProperty ,
+                      owl:AsymmetricProperty ;
+             rdfs:domain :Flight ;
+             rdfs:range :Aircraft ;
+             rdfs:comment "Indicates the aircraft associated with a flight" ;
+             rdfs:label "hasAircraft" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasComment
+:hasComment rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain :FlightReview ;
+            rdfs:range :Comment ;
+            rdfs:comment "Represents the comment associated with a flight review" ;
+            rdfs:label "hasComment" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasDestination
+:hasDestination rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ,
+                         owl:AsymmetricProperty ;
+                rdfs:domain :Flight ;
+                rdfs:range :Location ;
+                owl:propertyDisjointWith :hasOrigin ;
+                rdfs:comment "Indicates the destination location of a flight" ;
+                rdfs:label "hasDestination" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasOrigin
+:hasOrigin rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdf:type owl:FunctionalProperty ,
+                    owl:AsymmetricProperty ;
+           rdfs:domain :Flight ;
+           rdfs:range :Location ;
+           rdfs:comment "Indicates the origin location of a flight" ;
+           rdfs:label "hasOrigin" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasSeatType
+:hasSeatType rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ,
+                      owl:AsymmetricProperty ;
+             rdfs:domain :FlightReview ;
+             rdfs:range :SeatType ;
+             rdfs:comment "Indicates the type of seat of a passenger of a flight review" ;
+             rdfs:label "hasSeatType" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasTypeOfTraveller
+:hasTypeOfTraveller rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ,
+                             owl:AsymmetricProperty ;
+                    rdfs:domain :FlightReview ;
+                    rdfs:range :TypeOfTraveller ;
+                    rdfs:comment "Indicates the type of traveller of a passenger of a flight review" ;
+                    rdfs:label "hasTypeOfTraveller" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasUser
+:hasUser rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdf:type owl:FunctionalProperty ,
+                  owl:AsymmetricProperty ;
+         rdfs:domain :FlightReview ;
+         rdfs:range :User ;
+         rdfs:comment "Indicates the user that has reviewed a flight" ;
+         rdfs:label "hasUser" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isCityOf
+:isCityOf rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isCountryOf ;
+          rdf:type owl:FunctionalProperty ,
+                   owl:AsymmetricProperty ;
+          rdfs:domain :City ;
+          rdfs:range :Country ;
+          rdfs:comment "Indicates the country of a city" ;
+          rdfs:label "isCityOf" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isCountryOf
+:isCountryOf rdf:type owl:ObjectProperty ,
+                      owl:AsymmetricProperty ;
+             rdfs:domain :Country ;
+             rdfs:range :City ;
+             rdfs:comment "Indicates the cities of a country" ;
+             rdfs:label "isCountryOf" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isFlightOf
+:isFlightOf rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain :Flight ;
+            rdfs:range :Airline ;
+            rdfs:comment "Indicates the airline of a flight" ;
+            rdfs:label "isFlightOf" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isFlightReviewOf
+:isFlightReviewOf rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ,
+                           owl:AsymmetricProperty ;
+                  rdfs:domain :FlightReview ;
+                  rdfs:range :Flight ;
+                  rdfs:comment "Indicates the flight of a review" ;
+                  rdfs:label "isFlightReviewOf" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasAcronym
+:hasAcronym rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Location ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Indicates the acronym of a location" ;
+            rdfs:label "hasAcronym" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasBody
+:hasBody rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :Comment ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Indicates the body of a comment" ;
+         rdfs:label "hasBody" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasDate
+:hasDate rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :FlightReview ;
+         rdfs:range xsd:dateTime ;
+         rdfs:comment "Indicates the date of the flight review" ;
+         rdfs:label "hasDate" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasFlightId
+:hasFlightId rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain :Flight ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Indicates the identifier of a flight" ;
+             rdfs:label "hasFlightId" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasFlightReviewId
+:hasFlightReviewId rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :FlightReview ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Indicates the identifier of a flight review" ;
+                   rdfs:label "hasFlightReviewId" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasFlownDate
+:hasFlownDate rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Flight ;
+              rdfs:range xsd:dateTime ;
+              rdfs:comment "Indicates the date of a flight" ;
+              rdfs:label "hasFlownDate" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasLocationName
+:hasLocationName rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain :Location ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Indicates the name of a location" ;
+                 rdfs:label "hasLocationName" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasPersonName
+:hasPersonName rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :Person ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Indicates the name of a person" ;
+               rdfs:label "hasPersonName" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasRating
+:hasRating rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :FlightReview ;
+           rdfs:range xsd:int ;
+           rdfs:comment "Indicates the rating of the flight review" ;
+           rdfs:label "hasRating" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasTitle
+:hasTitle rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :Comment ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Indicates the title of a comment" ;
+          rdfs:label "hasTitle" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#hasUserId
+:hasUserId rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :User ;
+           rdfs:range xsd:string ;
+           rdfs:comment "Indicates the identifier of a passenger" ;
+           rdfs:label "hasUserId" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isRecommended
+:isRecommended rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :FlightReview ;
+               rdfs:range xsd:boolean ;
+               rdfs:comment "Indicated whether a flight is recommended or not" ;
+               rdfs:label "isRecommended" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#isVerified
+:isVerified rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :FlightReview ;
+            rdfs:range xsd:boolean ;
+            rdfs:comment "Indicated whether a fligh review from a passenger t is verified or not" ;
+            rdfs:label "isVerified" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Aircraft
+:Aircraft rdf:type owl:Class ;
+          rdfs:comment "Represents an aircraft used in aviation" ;
+          rdfs:label "Aircraft" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Airline
+:Airline rdf:type owl:Class ;
+         rdfs:comment "Represents a company or entity that provides air transportation services" ;
+         rdfs:label "Airline" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#City
+:City rdf:type owl:Class ;
+      rdfs:subClassOf :Location ;
+      owl:disjointWith :Country ;
+      rdfs:comment "Represents a city of destination or origin" ;
+      rdfs:label "City" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Comment
+:Comment rdf:type owl:Class ;
+         rdfs:comment "Represents a comment published in the flight satisfaction survey" ;
+         rdfs:label "Comment" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf :Location ;
+         rdfs:comment "Represents a country of destination or origin. Also a country in which a person was born" ;
+         rdfs:label "Country" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Flight
+:Flight rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Class ;
+                          owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasDestination ;
+                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :City
+                                                               ]
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasOrigin ;
+                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :City
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ]
+                                        [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasDestination ;
+                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :Country
+                                                               ]
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasOrigin ;
+                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :Country
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ]
+                                      )
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasAircraft ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Aircraft
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :isFlightOf ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Airline
+                        ] ;
+        rdfs:comment "Represents a flight of a flight review" ;
+        rdfs:label "Flight" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FlightReview
+:FlightReview rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasRating ;
+                                owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                     owl:onDatatype xsd:integer ;
+                                                     owl:withRestrictions ( [ xsd:minInclusive 0
+                                                                            ]
+                                                                            [ xsd:maxInclusive 10
+                                                                            ]
+                                                                          )
+                                                   ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasRating ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:integer
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :isVerified ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ;
+              rdfs:comment "Represents a flight review that a passenger has done" ;
+              rdfs:label "FlightReview" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FlightReviewAirline
+:FlightReviewAirline rdf:type owl:Class ;
+                     rdfs:subClassOf :FlightReview ;
+                     rdfs:comment "Represents a flight review by airline" ;
+                     rdfs:label "FlightReviewAirline" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FlightReviewRating
+:FlightReviewRating rdf:type owl:Class ;
+                    rdfs:subClassOf :FlightReview ;
+                    rdfs:comment "Represents a flight review by rating" ;
+                    rdfs:label "FlightReviewRating" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FlightReviewVerified
+:FlightReviewVerified rdf:type owl:Class ;
+                      rdfs:subClassOf :FlightReview ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :isVerified ;
+                                        owl:hasValue "true"^^xsd:boolean
+                                      ] ;
+                      rdfs:comment "Represents a verified flight review" ;
+                      rdfs:label "FlightReviewVerified" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Location
+:Location rdf:type owl:Class ;
+          rdfs:comment "Represents a location of destination or origin. Also a location in which a person was born" ;
+          rdfs:label "Location" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Negative
+:Negative rdf:type owl:Class ;
+          rdfs:subClassOf :FlightReviewRating ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasRating ;
+                            owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                 owl:onDatatype xsd:integer ;
+                                                 owl:withRestrictions ( [ xsd:minInclusive 0
+                                                                        ]
+                                                                        [ xsd:maxInclusive 4
+                                                                        ]
+                                                                      )
+                                               ]
+                          ] ;
+          rdfs:comment "Represents a negative flight review" ;
+          rdfs:label "Negative" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Neutral
+:Neutral rdf:type owl:Class ;
+         rdfs:subClassOf :FlightReviewRating ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasRating ;
+                           owl:hasValue 5
+                         ] ;
+         rdfs:comment "Represents a neutral flight review" ;
+         rdfs:label "Neutral" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Person
+:Person rdf:type owl:Class ;
+        rdfs:comment "Represents a human being" ;
+        rdfs:label "Person" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Positive
+:Positive rdf:type owl:Class ;
+          rdfs:subClassOf :FlightReviewRating ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasRating ;
+                            owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                 owl:onDatatype xsd:integer ;
+                                                 owl:withRestrictions ( [ xsd:minInclusive 6
+                                                                        ]
+                                                                        [ xsd:maxInclusive 10
+                                                                        ]
+                                                                      )
+                                               ]
+                          ] ;
+          rdfs:comment "Represents a positive flight review" ;
+          rdfs:label "Positive" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#QatarAirways
+:QatarAirways rdf:type owl:Class ;
+              rdfs:subClassOf :FlightReviewAirline ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :isFlightReviewOf ;
+                                owl:allValuesFrom :QatarAirwaysFlight
+                              ] .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#QatarAirwaysFlight
+:QatarAirwaysFlight rdf:type owl:Class ;
+                    rdfs:subClassOf :Flight ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :isFlightOf ;
+                                      owl:hasValue :QatarAirways
+                                    ] ;
+                    owl:disjointWith :RyanairFlight ;
+                    rdfs:comment "Represents a flight from Qatar airways" ;
+                    rdfs:label "QatarAirwaysFlight" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Ryanair
+:Ryanair rdf:type owl:Class ;
+         rdfs:subClassOf :FlightReviewAirline ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isFlightReviewOf ;
+                           owl:allValuesFrom :RyanairFlight
+                         ] .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#RyanairFlight
+:RyanairFlight rdf:type owl:Class ;
+               rdfs:subClassOf :Flight ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isFlightOf ;
+                                 owl:hasValue :Ryanair
+                               ] ;
+               rdfs:comment "Represents a flight from Ryanair" ;
+               rdfs:label "RyanairFlight" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#SeatType
+:SeatType rdf:type owl:Class ;
+          rdfs:comment "Represents the type of seat of a passenger who wrote a revew" ;
+          rdfs:label "SeatType" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#TypeOfTraveller
+:TypeOfTraveller rdf:type owl:Class ;
+                 rdfs:comment "Represents the type of traveller of a passenger that wrote a review" ;
+                 rdfs:label "TypeOfTraveller" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#User
+:User rdf:type owl:Class ;
+      rdfs:subClassOf :Person ;
+      rdfs:comment "Represents the user that wrote a flight review" ;
+      rdfs:label "User" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Barcelona
+:Barcelona rdf:type owl:NamedIndividual ,
+                    :City ;
+           :isCityOf :Spain ;
+           :hasAcronym "BCN" ;
+           :hasLocationName "Barcelona" ;
+           rdfs:comment "Represents the city of Barcelona" ;
+           rdfs:label "Barcelona" ;
+           rdfs:sameAs "http://dbpedia.org/resource/Barcelona" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Boeing_737
+:Boeing_737 rdf:type owl:NamedIndividual ,
+                     :Aircraft ;
+            rdfs:comment "Represents the Boeing 737 aircraft model" ;
+            rdfs:label "Boeing_737" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Boeing_737-800
+:Boeing_737-800 rdf:type owl:NamedIndividual ,
+                         :Aircraft ;
+                rdfs:comment "Represents the Boeing 737-800 aircraft model" ;
+                rdfs:label "Boeing_737_800" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Business
+:Business rdf:type owl:NamedIndividual ,
+                   :TypeOfTraveller ;
+          rdfs:comment "Represents a type of traveller" ;
+          rdfs:label "Business" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#BusinessClass
+:BusinessClass rdf:type owl:NamedIndividual ,
+                        :SeatType ;
+               rdfs:comment "Represents a type of seat" ;
+               rdfs:label "BusinessClass" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Canada
+:Canada rdf:type owl:NamedIndividual ,
+                 :Country ;
+        :hasAcronym "CA" ;
+        :hasLocationName "Canada" ;
+        rdfs:comment "Represents the country of Canada" ;
+        rdfs:label "Canada" ;
+        rdfs:sameAs "https://dbpedia.org/resource/Canada" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Comment1
+:Comment1 rdf:type owl:NamedIndividual ,
+                   :Comment ;
+          :hasBody "Body Comment1" ;
+          :hasTitle "Title Comment1" ;
+          rdfs:comment "Represents the comment 1" ;
+          rdfs:label "Comment1" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#CoupleLeisure
+:CoupleLeisure rdf:type owl:NamedIndividual ,
+                        :TypeOfTraveller ;
+               rdfs:comment "Represents a type of traveller" ;
+               rdfs:label "CoupleLeisure" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#EconomyClass
+:EconomyClass rdf:type owl:NamedIndividual ,
+                       :SeatType ;
+              rdfs:comment "Represents a type of seat" ;
+              rdfs:label "EconomyClass" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FamilyLeisure
+:FamilyLeisure rdf:type owl:NamedIndividual ,
+                        :TypeOfTraveller ;
+               rdfs:comment "Represents the family leisure travel category of a passenger that wrote a flight review" ;
+               rdfs:label "FamilyLeisure" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FirstClass
+:FirstClass rdf:type owl:NamedIndividual ,
+                     :SeatType ;
+            rdfs:comment "Represents a type of seat" ;
+            rdfs:label "FirstClass" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Flight1
+:Flight1 rdf:type owl:NamedIndividual ,
+                  :Flight ;
+         :hasAircraft :Boeing_737-800 ;
+         :hasDestination :Madrid ;
+         :hasOrigin :Barcelona ;
+         :isFlightOf :QatarAirways ;
+         :hasFlightId "F1" ;
+         :hasFlownDate "2022-04-20T00:00:00"^^xsd:dateTime ;
+         rdfs:comment "Represents the flight 1" ;
+         rdfs:label "Flight1" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FlightReview1
+:FlightReview1 rdf:type owl:NamedIndividual ,
+                        :FlightReview ;
+               :hasSeatType :BusinessClass ;
+               :hasTypeOfTraveller :FamilyLeisure ;
+               :hasUser :User1 ;
+               :isFlightReviewOf :Flight1 ;
+               :hasDate "2022-04-24T00:00:00"^^xsd:dateTime ;
+               :hasFlightReviewId "FR1" ;
+               :hasRating 7 ;
+               :isRecommended "true"^^xsd:boolean ;
+               :isVerified "true"^^xsd:boolean ;
+               rdfs:comment "Represents the flight review 1" ;
+               rdfs:label "FlightReview1" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#FlightReview2
+:FlightReview2 rdf:type owl:NamedIndividual ,
+                        :FlightReview ;
+               :hasSeatType :EconomyClass ;
+               :hasTypeOfTraveller :FamilyLeisure ;
+               :hasUser :User2 ;
+               :isFlightReviewOf :Flight1 ;
+               :hasDate "2022-04-27T00:00:00"^^xsd:dateTime ;
+               :hasFlightReviewId "FR1" ;
+               :hasRating 4 ;
+               :isRecommended "false"^^xsd:boolean ;
+               :isVerified "false"^^xsd:boolean ;
+               rdfs:comment "Represents the flight review 2" ;
+               rdfs:label "FlightReview2" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Madrid
+:Madrid rdf:type owl:NamedIndividual ,
+                 :City ;
+        :isCityOf :Spain ;
+        :hasAcronym "MAD" ;
+        :hasLocationName "Madrid" ;
+        rdfs:comment "Represents the city of Madrid" ;
+        rdfs:label "Madrid" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#QatarAirways
+:QatarAirways rdf:type owl:NamedIndividual ,
+                       :Airline .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Ryanair
+:Ryanair rdf:type owl:NamedIndividual ,
+                  :Airline .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#SoloLeisure
+:SoloLeisure rdf:type owl:NamedIndividual ,
+                      :TypeOfTraveller ;
+             rdfs:comment "Represents the solo leisure travel category of a passenger that wrote a flight review" ;
+             rdfs:label "SoloLeisure" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#Spain
+:Spain rdf:type owl:NamedIndividual ,
+                :Country ;
+       :isCountryOf :Barcelona ,
+                    :Madrid ;
+       :hasAcronym "ES" ;
+       :hasLocationName "Spain" ;
+       rdfs:comment "Represents the country of Spain" ;
+       rdfs:label "Spain" ;
+       rdfs:sameAs "https://dbpedia.org/resource/Spain" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#User1
+:User1 rdf:type owl:NamedIndividual ,
+                :User ;
+       :bornIn :Spain ;
+       :hasPersonName "Jhonny" ;
+       :hasUserId "U1" ;
+       rdfs:comment "Represents the user 1" ;
+       rdfs:label "User1" .
+
+
+###  http://www.semanticweb.org/llibe/ontologies/2024/3/ontologiaValoracionsVols#User2
+:User2 rdf:type owl:NamedIndividual ,
+                :User ;
+       :bornIn :Canada ;
+       :hasPersonName "Robert" ;
+       :hasUserId "U2" ;
+       rdfs:comment "Represents the user 2" ;
+       rdfs:label "User2" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:QatarAirways rdfs:comment "Represents a flight review of Qatar airways" ;
+              rdfs:label "QatarAirways" .
+
+
+:Ryanair rdfs:comment "Represents a flight review of Ryanair" ;
+         rdfs:label "Ryanair" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Aircraft
+                :Airline
+                :Comment
+                :Flight
+                :FlightReview
+                :Location
+                :Person
+                :SeatType
+                :TypeOfTraveller
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Negative
+                :Neutral
+                :Positive
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<urn:swrl:var#x> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#flight> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#rating> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :FlightReview ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasRating ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#rating>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#rating> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 5 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Negative ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :FlightReview ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isVerified ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :FlightReviewVerified ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Flight ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isFlightOf ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :QatarAirways
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :QatarAirwaysFlight ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Flight ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isFlightOf ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :Ryanair
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :RyanairFlight ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :FlightReview ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isFlightReviewOf ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#flight>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :isFlightOf ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#flight> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :QatarAirways
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :QatarAirways ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :FlightReview ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isFlightReviewOf ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#flight>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :isFlightOf ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#flight> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :Ryanair
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Ryanair ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :FlightReview ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasRating ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#rating>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#rating> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 5 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Neutral ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :FlightReview ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasRating ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#rating>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#rating> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 5 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Positive ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
