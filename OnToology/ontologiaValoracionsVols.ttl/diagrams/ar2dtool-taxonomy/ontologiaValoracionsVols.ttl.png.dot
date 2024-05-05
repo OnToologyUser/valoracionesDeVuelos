@@ -1,0 +1,20 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "ontologiaValoracionsVols:Ryanair" "ontologiaValoracionsVols:User" "ontologiaValoracionsVols:Country" "ontologiaValoracionsVols:QatarAirways" "ontologiaValoracionsVols:Location" "ontologiaValoracionsVols:City" "ontologiaValoracionsVols:FlightReviewRating" "ontologiaValoracionsVols:Neutral" "ontologiaValoracionsVols:Flight" "32cb81e372f8a51c29116856fd6f0672" "ontologiaValoracionsVols:FlightReviewAirline" "ontologiaValoracionsVols:Person" "ontologiaValoracionsVols:Negative" "ontologiaValoracionsVols:FlightReview" "ontologiaValoracionsVols:FlightReviewVerified" "ontologiaValoracionsVols:RyanairFlight" "ontologiaValoracionsVols:Positive" "ontologiaValoracionsVols:QatarAirwaysFlight" ; /*classes style*/
+	"ontologiaValoracionsVols:Negative" -> "ontologiaValoracionsVols:FlightReviewRating" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:QatarAirways" -> "ontologiaValoracionsVols:FlightReviewAirline" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:RyanairFlight" -> "ontologiaValoracionsVols:Flight" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:Neutral" -> "ontologiaValoracionsVols:FlightReviewRating" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:FlightReviewRating" -> "ontologiaValoracionsVols:FlightReview" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:FlightReviewVerified" -> "ontologiaValoracionsVols:FlightReview" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:QatarAirwaysFlight" -> "ontologiaValoracionsVols:Flight" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:Ryanair" -> "ontologiaValoracionsVols:FlightReviewAirline" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:User" -> "ontologiaValoracionsVols:Person" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:Positive" -> "ontologiaValoracionsVols:FlightReviewRating" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:FlightReviewAirline" -> "ontologiaValoracionsVols:FlightReview" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:City" -> "ontologiaValoracionsVols:Location" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:Country" -> "ontologiaValoracionsVols:Location" [ label = "rdfs:subClassOf" ];
+	"ontologiaValoracionsVols:Flight" -> "32cb81e372f8a51c29116856fd6f0672" [ label = "rdfs:subClassOf" ];
+
+}
